@@ -9,11 +9,6 @@ function App() {
     
       <h1>Tela de Login</h1>
       <Evento numero= "1"/>
-      <Form/>
-      <Evento numero= "2"/>
-      <Form/>
-      <Evento numero= "3"/>
-      <Form/>
 
     </div>
   )

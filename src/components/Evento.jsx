@@ -1,18 +1,25 @@
-import '../index.css'
+import { useState } from 'react';
+import Form from './Form';
 
-function Evento(numero){
+function Evento() {
+  const [mostrarForm, setMostrarForm] = useState(false);//criando evento
 
-    function myEvento(){
-        console.log(`Ops...Fui ativado! ${numero}`)
-    }
-    return(
+  function ativarFormulario() {//ativando a chamada do evento
+    setMostrarForm(true);
+  }
+
+  return (
+    <>
+      {!mostrarForm ? (//este comando com ! e ? me torna como se fosse um true ou false, ao invés de fazer um if else
         <>
-        
-        <p>Clique para disparar um Evento:</p>
-        <button onClick={myEvento}>Ativar HOOO</button>
-
+          <p>Clique para disparar um Evento:</p>
+          <button onClick={ativarFormulario}>Aqui Bananinha!!</button>
         </>
-    )
-
+      ) : (
+        <Form />
+      )}
+    </>
+  );
 }
+
 export default Evento;

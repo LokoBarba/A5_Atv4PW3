@@ -1,52 +1,50 @@
 import { useState } from "react";
+import '../index.css';
 
-function Form(){
+function Form() {
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
 
-    function cadastrarUsuario(event){//evento criado
-        event.preventDefault()//evento lincado com pausa
-        console.log(`User: ${name} cadastrado com a senha: ${password}`)
-        console.log("Cadastrou com Sucess!!")
-    }
+  function cadastrarUsuario(event) {
+    event.preventDefault();
+    console.log(`User: ${name} cadastrado com a senha: ${password}`);
+    console.log("Cadastrou com Sucesso!!");
 
-    const[name, setName] = useState()
-    const[password, setPassword] = useState()
+    alert(`Usuário ${name} cadastrado com sucesso!`);
+  }
 
-    return(
+  return (
+    <>
+      <h1>Meu Cadastro:</h1>
+      <form onSubmit={cadastrarUsuario}>
+        <div className="form">
+          <label htmlFor="name">Nome: </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Digite seu nome!"
+            onChange={(event) => setName(event.target.value)}
+          />
+        </div>
 
-        <>
-        
-        <h1>Meu Cadastro:</h1>
-        <form onSubmit={cadastrarUsuario}>
-
-            <div>
-
-                <label htmlFor="name">Nome: </label>
-                <input type="text" id="name" name="name" placeholder="Digite seu nome!"
-                onChange={(event) => setName(event.target.value)}
-                />
-
-            </div>
-
-            <div>
-
-            <label htmlFor="password">Senha: </label>
-            <input type="password" id="password" name="password" placeholder="Digite sua Senha:"
+        <div className="form">
+          <label htmlFor="password">Senha: </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Digite sua Senha:"
             onChange={(event) => setPassword(event.target.value)}
-            /> 
+          />
+        </div>
 
-            </div>
-
-            <div>
-
-                <input type="submit" value="Cadastrar"/>
-
-            </div>
-
-        </form>
-
-        </>
-
-    )
-
+        <div className="formInput">
+          <input id="input" type="submit" value="Cadastrar" />
+        </div>
+      </form>
+    </>
+  );
 }
+
 export default Form;
